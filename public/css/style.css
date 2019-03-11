@@ -1,0 +1,49 @@
+#app {
+    max-width: 1440px;
+    margin: auto;
+}
+
+a,
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-laravel {
+    background-color: #004D40;
+}
+
+.navbar-brand,
+.nav-link {
+    color: white !important;
+}
+
+.grid-menu {
+    padding: 100px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    color: white;
+}
+
+.grid-menu div {
+    height: 200px;
+    background-color: #4DB6AC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-menu div:hover {
+    cursor: pointer;
+    background-color: #009688;
+    height: 230px;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.grid-menu div p {
+    font-size: 25px;
+    font-family: sans-serif;
+}
+

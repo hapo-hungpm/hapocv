@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
+use App\Cv;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class CvController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = Admin::paginate(5);
-        return view('system_management.admins.index', compact('admins'));
+        $idUser = Auth::user()->id;
+
+        //chưa xong...
+        $cvs = Cv::paginate(5);
+        return view('cvs.index', compact('cvs'));
+
     }
 
     /**
@@ -25,18 +29,19 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('system_management.admins.create');
+        return view('cvs.create');
     }
 
     /**
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        Admin::create($request->all());
-        return redirect()->route('system_management.admins.index');
+        Cv::create($request->all());
+        return redirect()->route('home');
     }
 
     /**
@@ -58,8 +63,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $admin = Admin::findOrFail($id);
-        return view('system_management.admins.edit', compact('admin'));
+        //
     }
 
     /**
@@ -71,9 +75,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Admin::findOrFail($id)
-            ->update($request->all());
-        return redirect()->route('system_management.admins.index');
+        //
     }
 
     /**
@@ -84,7 +86,12 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        Admin::findOrFail($id)->delete();
-        return redirect()->route('system_management.admins.index');
+        //
+    }
+
+    public function showAllCv()
+    {
+        $cvs = Cv::paginate(5);
+        return view('cvs.index', compact('cvs'));
     }
 }

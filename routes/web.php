@@ -15,11 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('cvs', 'CvController');
 
-Route::prefix('admin')->name('Admin.')->group(function () {
-    Route::get('/', 'AdminController@index')->name('index');
-    Route::get('/admin', 'AdminController@login')->name('login');
+Route::get('system_management/login', 'Auth\Admin\LoginController@showLoginForm')->name('system_management.login');
+Route::post('system_management/login', 'Auth\Admin\LoginController@login')->name('system_management.login');
+Route::post('system_management/logout', 'Auth\Admin\LoginController@logout')->name('system_management.logout');
+Route::prefix('system_management')->middleware('admin.auth')->name('system_management.')->group(function () {
+    Route::resource('admins', 'AdminController');
+    Route::resource('users', 'UserController');
+    Route::get('cvs/all', 'CvController@showAllCv')->name('cvs.all');
+    Route::view('/', 'system_management.home')->name('home');
 });

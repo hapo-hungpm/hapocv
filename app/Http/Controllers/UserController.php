@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
+use App\User;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = Admin::paginate(5);
-        return view('system_management.admins.index', compact('admins'));
+        $users = User::paginate(5);
+        return view('system_management.users.index', compact('users'));
     }
 
     /**
@@ -25,18 +25,18 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('system_management.admins.create');
+        //
     }
 
     /**
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        Admin::create($request->all());
-        return redirect()->route('system_management.admins.index');
+        //
     }
 
     /**
@@ -58,8 +58,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $admin = Admin::findOrFail($id);
-        return view('system_management.admins.edit', compact('admin'));
+        //
     }
 
     /**
@@ -71,9 +70,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Admin::findOrFail($id)
-            ->update($request->all());
-        return redirect()->route('system_management.admins.index');
+        //
     }
 
     /**
@@ -84,7 +81,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        Admin::findOrFail($id)->delete();
-        return redirect()->route('system_management.admins.index');
+        User::findOrFail($id)->delete();
+        return redirect()->route('system_management.users.index');
     }
 }

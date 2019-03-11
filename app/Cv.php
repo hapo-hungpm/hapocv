@@ -9,10 +9,10 @@ class Cv extends Model
     protected $fillable = [
         'firstname', 'lastname', 'date_of_birth', 'phone', 'email', 'facebook', 'skype', 'chatwork', 'address', 'image',
         'position','summary', 'image_mini', 'professional_skill_title', 'personal_skill_title','work_experience_title',
-        'education_title'
+        'education_title',
     ];
 
-    public function educations()
+    public function education()
     {
         return $this->hasMany(Education::class);
     }
@@ -22,7 +22,7 @@ class Cv extends Model
         return $this->hasMany(Portfolio::class);
     }
 
-    public function reference()
+    public function references()
     {
         return $this->hasMany(Reference::class);
     }
