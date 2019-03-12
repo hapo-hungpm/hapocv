@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Cv;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CvController extends Controller
 {
@@ -14,9 +16,7 @@ class CvController extends Controller
      */
     public function index()
     {
-        $idUser = Auth::user()->id;
-
-        //chưa xong...
+        //progressing...
         $cvs = Cv::paginate(5);
         return view('cvs.index', compact('cvs'));
 
@@ -40,8 +40,28 @@ class CvController extends Controller
      */
     public function store(Request $request)
     {
-        Cv::create($request->all());
-        return redirect()->route('home');
+        //is progressing...
+        $userId = Auth::user()->id;
+        $cv = new Cv();
+        $cv->email = $request->email;
+        $cv->firstname = $userId;
+        $cv->lastname = 'hihi';
+        $cv->user_id = $userId;
+        $cv->date_of_birth = $request->date_of_birth;
+        $cv->facebook = $request->facebook;
+        $cv->skype = $request->skype;
+        $cv->chatwork = $request->chatwork;
+        $cv->address = $request->address;
+        $cv->image = '';
+        $cv->position = $request->position;
+        $cv->summary = $request->skills;
+        $cv->image_mini = '';
+        $cv->status = '';
+        $cv->professional_skill_title = $request->professional_skill_title;
+        $cv->personal_skill_title = $request->personal_skill_title;
+        $cv->work_experience_title = $request->work_experience_title;
+        $cv->education_title = $request->education_title;
+        $cv->save();
     }
 
     /**

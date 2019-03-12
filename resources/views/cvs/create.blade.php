@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 @section('head')
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -43,7 +43,7 @@
 
                         <span id="lastname">walker</span>
                     </div>
-                    <p class="job-cover" contenteditable="true" spellcheck="false">Ruby on Rail Developer</p>
+                    <p class="job-cover" contenteditable="true" spellcheck="false" id="position">Ruby on Rail Developer</p>
                 </div>
             </div>
             <div class="sec-camera">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <p class="name-info" contenteditable="true" spellcheck="false">bumblebee walker</p>
-                    <p class="birthday-info" contenteditable="true" spellcheck="false">25/12/1992</p>
+                    <p class="birthday-info" contenteditable="true" spellcheck="false" id="date_of_birth">1992-12-25</p>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -91,16 +91,16 @@
                             <td class="col col-data" contenteditable="true" spellcheck="false" id="facebook">bumblebee</td>
                         </tr>
                         <tr>
-                            <td class="col-label">Skype:</td>
+                            <td class="col-label" id="skype">Skype:</td>
                             <td class="col col-data" contenteditable="true" spellcheck="false">bumblebee</td>
                         </tr>
                         <tr>
-                            <td class="col-label">Chatwork:</td>
+                            <td class="col-label" id="chatwork">Chatwork:</td>
                             <td class="col col-data" contenteditable="true" spellcheck="false">bumblebee</td>
                         </tr>
                         <tr>
                             <td class="col-label">Address:</td>
-                            <td class="col col-data" contenteditable="true" spellcheck="false">58 Tran Binh - Mai Dich - Cau Giay - Ha Noi</td>
+                            <td class="col col-data" contenteditable="true" spellcheck="false" id="address">58 Tran Binh - Mai Dich - Cau Giay - Ha Noi</td>
                         </tr>
                         </tbody>
                     </table>
@@ -127,7 +127,7 @@
                 </div>
             </div>
             <div>
-                <p class="sec-intro" contenteditable="true" spellcheck="false">
+                <p class="sec-intro" contenteditable="true" spellcheck="false" id="summary">
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincclassunt
                     ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
                     tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
@@ -159,7 +159,7 @@
                         skills
                     </div>
                 </div>
-                <p class="sec-intro" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                <p class="sec-intro" contenteditable="true" spellcheck="false" id="professional_skill_title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                     euismod tincclassunt</p>
                 <div class="row skill-chart sec-skill-donut-chart">
                     <div class="wrap-donut-chart-left">
@@ -169,7 +169,7 @@
                                 <circle class="donut-segment" r="47.5"></circle>
                                 <text>75%</text>
                             </svg>
-                            <p class="skill-name">html/css</p>
+                            <input class="skill-name" value="html/css" style="text-align: center; background-color: transparent; border: none;">
                         </div>
                     </div>
                     <div class="wrap-donut-chart-center">
@@ -242,7 +242,7 @@
                         skills
                     </div>
                 </div>
-                <p class="sec-intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                <p class="sec-intro" id="personal_skill_title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                     euismod tincclassunt</p>
                 <div class="skill-chart">
                     <div class="row sec-skill-line-charts">
@@ -288,7 +288,7 @@
                         experience
                     </div>
                 </div>
-                <p class="sec-intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                <p class="sec-intro" id="work_experience_title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                     euismod tincclassunt</p>
                 <div class="chart-work-edu">
                     <div class="head-line-vertical"></div>
@@ -363,7 +363,7 @@
                     <p>Education</p>
                     <div class="line line-bottom"></div>
                 </div>
-                <p class="sec-intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                <p class="sec-intro" id="education_title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                     euismod tincclassun</p>
                 <div class="chart-work-edu">
                     <div class="head-line-vertical"></div>
@@ -541,6 +541,9 @@
 @endsection
 @section('script')
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+    <script src="YourJquery source path"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
     <script src="{{ asset('slick/slick.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script>
@@ -549,26 +552,82 @@
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    // Cho em hỏi là em vào trang này cứ bị lỗi CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token
-                    // Mặc dù em đã có thẻ <meta name="csrf-token" content="{{ csrf_token() }}"> ở trang lay out
                 }
             });
 
             $(".btn-submit").click(function(e) {
+
+                let skills = [];
+                $( '.donut ').each(function () {
+                    let skill = {
+                        percent :  $( this ).children("text").text(),
+                        skill_id :  $( this ).next().text(),
+                    }
+                    skills.push(skill);
+                });
+                console.log(JSON.stringify(skills));
+
                 e.preventDefault();
-                let facebook = $("#facebook").text();
-                let phone = $("#phone").text();
-                let email = $("#email").text();
 
                 $.ajax({
-                    type:'POST',
-                    url:'{{ route('cvs.store') }}',
-                    data: {facebook: facebook, phone: phone, email: email},
-                    success:function(data){
-                        alert(data.success);
+                    url: '{{ route('cvs.store') }}',
+                    type: 'POST',
+                    data: {
+                        facebook:$("#facebook").text(),
+                        phone: $("#phone").text(),
+                        email: $("#email").text(),
+                        date_of_birth : $("#date_of_birth").text(),
+                        skype : $("#skype").text(),
+                        chatwork : $("#chatwork").text(),
+                        address : $("#address").text(),
+                        image : '',
+                        position : $("#position").text(),
+                        summary : $("#summary").text(),
+                        image_mini : '',
+                        status : '',
+                        professional_skill_title : $("#professional_skill_title").text(),
+                        personal_skill_title : $("#personal_skill_title").text(),
+                        work_experience_title : $("#work_experience_title").text(),
+                        education_title : $("#education_title").text(),
+                        skills : skills,
+                    },
+                    success: function(result){
+                        {{--window.location.href = '{{ route('home') }}';--}}
+                        alert('hihi');
+                        // alert(result.message);
                     }
                 });
-        });
+            });
+
+            $( function() {
+                var availableTags = [
+                    "ActionScript",
+                    "AppleScript",
+                    "Asp",
+                    "BASIC",
+                    "C",
+                    "C++",
+                    "Clojure",
+                    "COBOL",
+                    "ColdFusion",
+                    "Erlang",
+                    "Fortran",
+                    "Groovy",
+                    "Haskell",
+                    "Java",
+                    "JavaScript",
+                    "Lisp",
+                    "Perl",
+                    "PHP",
+                    "Python",
+                    "Ruby",
+                    "Scala",
+                    "Scheme"
+                ];
+                $( ".donut" ).next().autocomplete({
+                    source: availableTags
+                });
+            } );
 
 
         });
