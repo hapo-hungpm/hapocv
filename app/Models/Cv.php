@@ -1,18 +1,18 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Cv extends Model
 {
     protected $fillable = [
-        'firstname', 'lastname', 'date_of_birth', 'phone', 'email', 'facebook', 'skype', 'chatwork', 'address', 'image',
+        'cv_title', 'name', 'date_of_birth', 'phone', 'email', 'facebook', 'skype', 'chat_work', 'address', 'image',
         'position','summary', 'image_mini', 'professional_skill_title', 'personal_skill_title','work_experience_title',
-        'education_title',
+        'education_title', 'status', 'user_id',
     ];
 
-    public function education()
+    public function educations()
     {
         return $this->hasMany(Education::class);
     }
@@ -29,12 +29,12 @@ class Cv extends Model
 
     public function skills()
     {
-        return $this->hasMany(Skill::class);
+        return $this->belongsToMany(Skill::class )->withPivot('percent');
     }
 
     public function workExperiences()
     {
-        return $this->hasMany(WorkExperience::class);
+        return $this->belongsToMany(WorkExperience::class);
     }
 
 }

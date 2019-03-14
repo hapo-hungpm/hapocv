@@ -14,7 +14,7 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
         for ($i = 0; $i < 10; $i++) {
-            DB::table('system_management')->insert([
+            DB::table('admins')->insert([
                 'name' => 'Hung',
                 'email' => Str::random(3) . '@haposoft.com',
                 'password' => bcrypt('12345678'),

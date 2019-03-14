@@ -10,7 +10,6 @@
                 <th>name</th>
                 <th>email</th>
                 <th></th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -19,16 +18,7 @@
                     <th>{{ $cv->id }}</th>
                     <td>{{ $cv->firstname }}</td>
                     <td>{{ $cv->email }}</td>
-                    <td><a href="{{ route('system_management.cvs.edit',$cv->id) }}"><button class="btn btn-outline-primary btn-sm">Edit</button></a></td>
-                    <td>
-
-                        <form action = "{{ route('system_management.cvs.destroy', $cv->id)}}" method="POST" class="delete-form{{ $cv->id }}">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-outline-danger btn-sm btn-delete"
-                                    data-toggle="modal" data-target="#modal" type="button" value="{{ $cv->id }}">Delete</button>
-                        </form>
-                    </td>
+                    <td><a href=""><button class="btn btn-outline-primary btn-sm">Edit</button></a></td>
                 </tr>
             @endforeach
             </tbody>

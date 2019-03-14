@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class WorkExperience extends Model
 {
     protected $fillable = [
-        'start', 'end', 'position', 'work_content'
+        'start', 'end', 'position', 'work_content', 'company_id', 'cv_id',
     ];
 
     public function cv()

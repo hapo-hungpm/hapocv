@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\Admin;
+
 
 class CreateAdminsTable extends Migration
 {
@@ -13,12 +15,14 @@ class CreateAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('system_management', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('type')->default('Admin');
+            $table->rememberToken();
+            $table->tinyInteger('type')->default(Admin::ADMIN);
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('system_management');
+        Schema::dropIfExists('admins');
     }
 }

@@ -1,13 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Education extends Model
 {
+    protected $table = 'education';
+
     protected $fillable = [
-        'start', 'end', 'position', 'achievement'
+        'start', 'end', 'position', 'achievements', 'cv_id', 'school_id',
     ];
 
     public function cv()

@@ -41,6 +41,12 @@
   margin: 0;
   padding: 0; }
 
+[contenteditable] {
+  border: none; }
+
+[contenteditable]:focus-within {
+  outline: 1px dashed white; }
+
 /*line*/
 .line {
   height: 2.5px;
@@ -111,7 +117,7 @@
   margin-top: 424px; }
 
 .avt-cover {
-  background: url(./../../imgs/photographer-1867417_1920.jpg) center, #C4C4C4;
+  background: url(../imgs/photographer-1867417_1920.jpg) center, #C4C4C4;
   background-size: auto 100%;
   position: relative; }
 
@@ -182,7 +188,7 @@
 
 .avatar-change {
   margin-top: 12px;
-  background: url(./../../imgs/photographer-1867417_1920.jpg) center, #C4C4C4;
+  background: url(../imgs/photographer-1867417_1920.jpg) center, #C4C4C4;
   background-size: auto 100%;
   overflow: hidden; }
   .avatar-change div {
@@ -266,6 +272,7 @@ tbody {
       justify-content: flex-end; } }
   .sec-skill-donut-chart .skill-donut-chart {
     margin-top: 25px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center; }
@@ -277,14 +284,17 @@ tbody {
         stroke: #d2d3d4; }
       .sec-skill-donut-chart .skill-donut-chart .donut .donut-segment {
         stroke: #F85365; }
-      .sec-skill-donut-chart .skill-donut-chart .donut text {
-        text-anchor: middle;
-        alignment-baseline: middle;
-        fill: white; }
+    .sec-skill-donut-chart .skill-donut-chart .donut-percent {
+      position: absolute;
+      top: 36px;
+      margin: 0 auto; }
     .sec-skill-donut-chart .skill-donut-chart .skill-name {
       margin-top: 10px;
       font-weight: 500;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      text-align: center;
+      background-color: transparent;
+      border: none; }
 
 .sec-skill-line-chart {
   margin-top: 25px;
@@ -348,13 +358,12 @@ tbody {
         padding: 11px 9px;
         border: 0.5px solid white;
         float: right; }
+        .chart-work-edu .chart-work .event-chart .chart-content .timeline, .chart-work-edu .chart-edu .event-chart .chart-content .timeline {
+          border-bottom: 1px solid #FFFFFF; }
         .chart-work-edu .chart-work .event-chart .chart-content .event-name, .chart-work-edu .chart-edu .event-chart .chart-content .event-name {
           font-weight: bold;
           letter-spacing: 0.05em;
           text-transform: uppercase; }
-          .chart-work-edu .chart-work .event-chart .chart-content .event-name .span, .chart-work-edu .chart-edu .event-chart .chart-content .event-name .span {
-            display: inline-block;
-            border-bottom: 1px solid #FFFFFF; }
 
 /*Portfolio*/
 .sec-portfolio {
@@ -442,7 +451,7 @@ tbody {
   background-color: #2F2FA1; }
 
 .avatar-ref {
-  background: url(./../../imgs/avatar-ref.jpg) center, #C4C4C4;
+  background: url(../imgs/avatar-ref.jpg) center, #C4C4C4;
   background-size: auto 100%;
   margin-left: 0;
   flex-shrink: 0;

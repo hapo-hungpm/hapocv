@@ -21,7 +21,7 @@
 @endsection
 @section('content')
 <div class="row toolbar">
-    <div class="col cv-title align-justify-center" contenteditable="true" spellcheck="false">Your CV Title</div>
+    <div class="col cv-title align-justify-center" contenteditable="true" spellcheck="false" id="cv-title">Your CV Title</div>
     <button class="col-auto btn-save-cv align-justify-center btn-submit">Save CV</button>
 </div>
 <div class="container">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="name-info" contenteditable="true" spellcheck="false">bumblebee walker</p>
+                    <p class="name-info" contenteditable="true" spellcheck="false" id="name">bumblebee walker</p>
                     <p class="birthday-info" contenteditable="true" spellcheck="false" id="date_of_birth">1992-12-25</p>
                 </div>
             </div>
@@ -80,27 +80,27 @@
                         <tbody>
                         <tr>
                             <td class="col-label">Phone:</td>
-                            <td class="col col-data" contenteditable="true" spellcheck="false" id="phone">0123456789</td>
+                            <td class="col col-data"><span contenteditable="true" spellcheck="false" id="phone">0123456789</span></td>
                         </tr>
                         <tr>
                             <td class="col-label">Email:</td>
-                            <td class="col col-data email" contenteditable="true" spellcheck="false" id="email">bumblebee@gmail.com</td>
+                            <td class="col col-data email"><span contenteditable="true" spellcheck="false" id="email">bumblebee@gmail.com</span></td>
                         </tr>
                         <tr>
                             <td class="col-label">Facebook:</td>
-                            <td class="col col-data" contenteditable="true" spellcheck="false" id="facebook">bumblebee</td>
+                            <td class="col col-data"><span contenteditable="true" spellcheck="false" id="facebook">bumblebee</span></td>
                         </tr>
                         <tr>
-                            <td class="col-label" id="skype">Skype:</td>
-                            <td class="col col-data" contenteditable="true" spellcheck="false">bumblebee</td>
+                            <td class="col-label">Skype:</td>
+                            <td class="col col-data"><span contenteditable="true" spellcheck="false" id="skype">bumblebee</span></td>
                         </tr>
                         <tr>
-                            <td class="col-label" id="chatwork">Chatwork:</td>
-                            <td class="col col-data" contenteditable="true" spellcheck="false">bumblebee</td>
+                            <td class="col-label">Chatwork:</td>
+                            <td class="col col-data"><span contenteditable="true" spellcheck="false" id="chat_work">bumblebee</span></td>
                         </tr>
                         <tr>
                             <td class="col-label">Address:</td>
-                            <td class="col col-data" contenteditable="true" spellcheck="false" id="address">58 Tran Binh - Mai Dich - Cau Giay - Ha Noi</td>
+                            <td class="col col-data"><span contenteditable="true" spellcheck="false" id="address">58 Tran Binh - Mai Dich - Cau Giay - Ha Noi</span></td>
                         </tr>
                         </tbody>
                     </table>
@@ -167,9 +167,9 @@
                             <svg class="donut">
                                 <circle class="donut-ring" r="47.5"></circle>
                                 <circle class="donut-segment" r="47.5"></circle>
-                                <text>75%</text>
                             </svg>
-                            <input class="skill-name" value="html/css" style="text-align: center; background-color: transparent; border: none;">
+                            <span class="donut-percent" contenteditable="true" spellcheck="false">65%</span>
+                            <input class="skill-name" value="html/css">
                         </div>
                     </div>
                     <div class="wrap-donut-chart-center">
@@ -177,9 +177,9 @@
                             <svg class="donut">
                                 <circle class="donut-ring" r="47.5"></circle>
                                 <circle class="donut-segment" r="47.5"></circle>
-                                <text contenteditable="true" spellcheck="false">65%</text>
                             </svg>
-                            <p class="skill-name" contenteditable="true" spellcheck="false">c#.net</p>
+                            <span class="donut-percent" contenteditable="true" spellcheck="false">65%</span>
+                            <input class="skill-name" value="c#">
                         </div>
                     </div>
                     <div class="wrap-donut-chart-right">
@@ -187,9 +187,9 @@
                             <svg class="donut">
                                 <circle class="donut-ring" r="47.5"></circle>
                                 <circle class="donut-segment" r="47.5"></circle>
-                                <text>50%</text>
                             </svg>
-                            <p class="skill-name">my sql</p>
+                            <span class="donut-percent" contenteditable="true" spellcheck="false">50%</span>
+                            <input class="skill-name" value="mysql">
                         </div>
 
                     </div>
@@ -198,9 +198,9 @@
                             <svg class="donut">
                                 <circle class="donut-ring" r="47.5"></circle>
                                 <circle class="donut-segment" r="47.5"></circle>
-                                <text>75%</text>
                             </svg>
-                            <p class="skill-name">php</p>
+                            <span class="donut-percent" contenteditable="true" spellcheck="false">50%</span>
+                            <input class="skill-name" value="php">
                         </div>
                     </div>
                     <div class="wrap-donut-chart-center">
@@ -208,9 +208,9 @@
                             <svg class="donut">
                                 <circle class="donut-ring" r="47.5"></circle>
                                 <circle class="donut-segment" r="47.5"></circle>
-                                <text>65%</text>
                             </svg>
-                            <p class="skill-name">react native</p>
+                            <span class="donut-percent" contenteditable="true" spellcheck="false">65%</span>
+                            <input class="skill-name" value="react native">
                         </div>
                     </div>
                     <div class="wrap-donut-chart-right wrap-donut-btn">
@@ -247,26 +247,27 @@
                 <div class="skill-chart">
                     <div class="row sec-skill-line-charts">
                         <div class="sec-skill-line-chart">
-                            <h5>team work</h5>
+                            <h5 contenteditable="true">team work</h5>
                             <div class="progress-bar">
-                                <div><p>85%</p></div>
+                                <div><p class="line-chart-percent" contenteditable="true">85%</p></div>
                             </div>
                         </div>
                         <div class="sec-skill-line-chart">
-                            <h5>english</h5>
+                            <h5 contenteditable="true">english</h5>
                             <div class="progress-bar">
-                                <div><p>65%</p></div>
+                                <div><p contenteditable="true">65%</p></div>
                             </div>
                         </div>
                         <div class="sec-skill-line-chart">
-                            <h5>japanese</h5>
+                            <h5 contenteditable="true">japanese</h5>
                             <div class="progress-bar">
-                                <div><p>35%</p></div>
+                                <div><p contenteditable="true">35%</p></div>
                             </div>
                         </div>
                     </div>
-                    <div class="row row-btn" onclick="addSkillLineChart()">
-                        <div class="btn btn-right">
+                    </div>
+                    <div class="row row-btn">
+                        <div class="btn btn-right" onclick="addSkillLineChart()">
                             <span>Add skill</span>
                             <i class="fa fa-plus"></i>
                         </div>
@@ -274,7 +275,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <div class="row justify-content-center sec-work-edu">
         <div class="row wrap-row-content">
             <div class="col-md-6 wrap-col sec-work wrap-col-left">
@@ -288,7 +288,7 @@
                         experience
                     </div>
                 </div>
-                <p class="sec-intro" id="work_experience_title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                <p class="sec-intro" id="work_experience_title" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                     euismod tincclassunt</p>
                 <div class="chart-work-edu">
                     <div class="head-line-vertical"></div>
@@ -297,10 +297,11 @@
                             <div class="arrow-right"></div>
                             <div class="line-dot-horizon">
                             </div>
-                            <div class="chart-content">
-                                <h4 class="event-name">(<span>2010 - 2019</span>) ABC COMPANY</h4>
-                                <p>Developer</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                            <div class="chart-content work-ex-content">
+                                (<span class="timeline"><span contenteditable="true" class="start">2010</span> - <span class="end" contenteditable="true">2019</span></span></span>)
+                                <span class="event-name company" contenteditable="true" spellcheck="false"> ABC COMPANY</span>
+                                <p contenteditable="true" spellcheck="false" class="position">Developer</p>
+                                <p contenteditable="true" spellcheck="false" class="work-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                                     euismod tincclassunt</p>
                             </div>
                         </div>
@@ -308,43 +309,11 @@
                             <div class="arrow-right"></div>
                             <div class="line-dot-horizon">
                             </div>
-                            <div class="chart-content">
-                                <h4 class="event-name">(<span>2010 - 2019</span>) ABC COMPANY</h4>
-                                <p>Developer</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincclassunt</p>
-                            </div>
-                        </div>
-                        <div class="event-chart">
-                            <div class="arrow-right"></div>
-                            <div class="line-dot-horizon">
-                            </div>
-                            <div class="chart-content">
-                                <h4 class="event-name">(<span>2010 - 2019</span>) ABC COMPANY</h4>
-                                <p>Developer</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincclassunt</p>
-                            </div>
-                        </div>
-                        <div class="event-chart">
-                            <div class="arrow-right"></div>
-                            <div class="line-dot-horizon">
-                            </div>
-                            <div class="chart-content">
-                                <h4 class="event-name">(<span>2010 - 2019</span>) ABC COMPANY</h4>
-                                <p>Developer</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincclassunt</p>
-                            </div>
-                        </div>
-                        <div class="event-chart">
-                            <div class="arrow-right"></div>
-                            <div class="line-dot-horizon">
-                            </div>
-                            <div class="chart-content">
-                                <h4 class="event-name">(<span>2010 - 2019</span>) ABC COMPANY</h4>
-                                <p>Developer</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                            <div class="chart-content work-ex-content">
+                                (<span class="timeline"><span contenteditable="true" class="start">2010</span> - <span class="end" contenteditable="true">2019</span></span>)
+                                <span class="event-name company" contenteditable="true" spellcheck="false"> ABC COMPANY</span>
+                                <p contenteditable="true" spellcheck="false" class="position">Developer</p>
+                                <p contenteditable="true" spellcheck="false" class="work-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                                     euismod tincclassunt</p>
                             </div>
                         </div>
@@ -363,7 +332,7 @@
                     <p>Education</p>
                     <div class="line line-bottom"></div>
                 </div>
-                <p class="sec-intro" id="education_title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                <p class="sec-intro" id="education_title" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                     euismod tincclassun</p>
                 <div class="chart-work-edu">
                     <div class="head-line-vertical"></div>
@@ -372,10 +341,11 @@
                             <div class="arrow-right"></div>
                             <div class="line-dot-horizon">
                             </div>
-                            <div class="chart-content">
-                                <h4 class="event-name">(<span>2010 - 2015</span>) DEF UNIVERSITY</h4>
-                                <p>Student</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                            <div class="chart-content edu-content">
+                                (<span class="timeline"><span contenteditable="true" class="start">2010</span> - <span class="end" contenteditable="true">2019</span></span>)
+                                <span class="event-name school" contenteditable="true" spellcheck="false"> DEF UNIVERSITY</span>
+                                <p class="position" contenteditable="true" spellcheck="false">Student</p>
+                                <p class="achievement" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                                     euismod tincclassunt</p>
                             </div>
                         </div>
@@ -383,43 +353,11 @@
                             <div class="arrow-right"></div>
                             <div class="line-dot-horizon">
                             </div>
-                            <div class="chart-content">
-                                <h4 class="event-name">(<span>2010 - 2015</span>) DEF UNIVERSITY</h4>
-                                <p>Student</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincclassunt</p>
-                            </div>
-                        </div>
-                        <div class="event-chart">
-                            <div class="arrow-right"></div>
-                            <div class="line-dot-horizon">
-                            </div>
-                            <div class="chart-content">
-                                <h4 class="event-name">(<span>2010 - 2015</span>) DEF UNIVERSITY</h4>
-                                <p>Student</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincclassunt</p>
-                            </div>
-                        </div>
-                        <div class="event-chart">
-                            <div class="arrow-right"></div>
-                            <div class="line-dot-horizon">
-                            </div>
-                            <div class="chart-content">
-                                <h4 class="event-name">(<span>2010 - 2015</span>) DEF UNIVERSITY</h4>
-                                <p>Student</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincclassunt</p>
-                            </div>
-                        </div>
-                        <div class="event-chart">
-                            <div class="arrow-right"></div>
-                            <div class="line-dot-horizon">
-                            </div>
-                            <div class="chart-content">
-                                <h4 class="event-name">(<span>2010 - 2015</span>) DEF UNIVERSITY</h4>
-                                <p>Student</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                            <div class="chart-content edu-content">
+                                (<span class="timeline"><span contenteditable="true" class="start">2010</span> - <span class="end" contenteditable="true">2019</span></span>)
+                                <span class="event-name school" contenteditable="true" spellcheck="false"> DEF UNIVERSITY</span>
+                                <p class="position" contenteditable="true" spellcheck="false">Student</p>
+                                <p class="achievement" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                                     euismod tincclassunt</p>
                             </div>
                         </div>
@@ -498,7 +436,7 @@
                             <div class="avatar-ref avatar"></div>
                             <div class="col-md sec-quotes">
                                 <span class="quotes quote-open"> “</span>
-                                <span class="quote-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincclassunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in</span>
+                                <span class="quote-content" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincclassunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in</span>
                                 <span class="quotes quote-end">”</span>
                             </div>
                         </div>
@@ -508,7 +446,7 @@
                             <div class="avatar-ref avatar"></div>
                             <div class="col-md sec-quotes">
                                 <span class="quotes quote-open"> “</span>
-                                <span class="quote-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincclassunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in</span>
+                                <span class="quote-content" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincclassunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in</span>
                                 <span class="quotes quote-end">”</span>
                             </div>
                         </div>
@@ -518,7 +456,7 @@
                             <div class="avatar-ref avatar"></div>
                             <div class="col-md sec-quotes">
                                 <span class="quotes quote-open"> “</span>
-                                <span class="quote-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincclassunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in</span>
+                                <span class="quote-content" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincclassunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in</span>
                                 <span class="quotes quote-end">”</span>
                             </div>
                         </div>
@@ -557,50 +495,95 @@
 
             $(".btn-submit").click(function(e) {
 
+                //add all donut skill into skills
                 let skills = [];
                 $( '.donut ').each(function () {
                     let skill = {
-                        percent :  $( this ).children("text").text(),
-                        skill_id :  $( this ).next().text(),
+                        percent :  $( this ).next().text().slice(0, -1),
+                        name :  $( this ).next().next().val(),
+                        type: 1,
                     }
                     skills.push(skill);
                 });
-                console.log(JSON.stringify(skills));
+
+                //add all line skill into skills
+                $( '.sec-skill-line-chart ').each(function () {
+                    let skill = {
+                        percent :  $( this ).children("div").children("div").children("p").text().slice(0, -1),
+                        name :  $( this ).children("h5").text(),
+                        type: 2,
+                    }
+                    skills.push(skill);
+                });
+
+                //add all workExperiences data into worExperiences
+                let workExperiences = [];
+                $( '.work-ex-content ').each(function () {
+                    let workExperience = {
+                        start :  $( this ).children(".timeline").children(".start").text(),
+                        end: $( this ).children(".timeline").children(".end").text(),
+                        company_name: $( this ).children(".company").text(),
+                        position: $( this ).children(".position").text(),
+                        work_content: $( this ).children(".work-content").text(),
+                        type: 1,
+                    }
+                    workExperiences.push(workExperience);
+                });
+
+                //add all education data into edus
+                let edus = [];
+                $( '.edu-content ').each(function () {
+                    let edu = {
+                        start :  $( this ).children(".timeline").children(".start").text(),
+                        end: $( this ).children(".timeline").children(".end").text(),
+                        school_name: $( this ).children(".school").text(),
+                        position: $( this ).children(".position").text(),
+                        achievements: $( this ).children(".achievement").text(),
+                        type: 2,
+                    }
+                    edus.push(edu);
+                });
+
+                //JSON transformation
+                skills = JSON.stringify(skills);
+                workExperiences = JSON.stringify(workExperiences);
+                edus = JSON.stringify(edus);
 
                 e.preventDefault();
-
                 $.ajax({
                     url: '{{ route('cvs.store') }}',
                     type: 'POST',
                     data: {
-                        facebook:$("#facebook").text(),
-                        phone: $("#phone").text(),
-                        email: $("#email").text(),
+                        cv_title: $("#cv-title").text(),
+                        name: $("#name").text(),
                         date_of_birth : $("#date_of_birth").text(),
+                        phone: $("#phone").text(),
+                        facebook: $("#facebook").text(),
+                        email: $("#email").text(),
                         skype : $("#skype").text(),
-                        chatwork : $("#chatwork").text(),
+                        chat_work : $("#chat_work").text(),
                         address : $("#address").text(),
-                        image : '',
+                        image : 'a',
                         position : $("#position").text(),
                         summary : $("#summary").text(),
-                        image_mini : '',
-                        status : '',
+                        image_mini : 'a',
                         professional_skill_title : $("#professional_skill_title").text(),
                         personal_skill_title : $("#personal_skill_title").text(),
                         work_experience_title : $("#work_experience_title").text(),
                         education_title : $("#education_title").text(),
                         skills : skills,
+                        work_experiences: workExperiences,
+                        educations: edus,
                     },
                     success: function(result){
-                        {{--window.location.href = '{{ route('home') }}';--}}
-                        alert('hihi');
-                        // alert(result.message);
+                        alert(result);
                     }
                 });
             });
 
+            //Recommend testing...
             $( function() {
-                var availableTags = [
+                let availableTags = [
                     "ActionScript",
                     "AppleScript",
                     "Asp",
@@ -624,12 +607,10 @@
                     "Scala",
                     "Scheme"
                 ];
-                $( ".donut" ).next().autocomplete({
+                $( ".skill-name" ).autocomplete({
                     source: availableTags
                 });
             } );
-
-
         });
     </script>
 @endsection

@@ -15,25 +15,25 @@ class CreateCvsTable extends Migration
     {
         Schema::create('cvs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('firstname');
-            $table->string('lastname');
+            $table->string('cv_title');
+            $table->string('name');
             $table->date('date_of_birth');
-            $table->string('email')->unique();
+            $table->string('phone');
+            $table->string('email');
             $table->string('facebook');
             $table->string('skype');
-            $table->string('chatwork');
+            $table->string('chat_work');
             $table->string('address');
-            $table->string('image');
             $table->string('position');
-            $table->string('summary');
-            $table->string('status');
+            $table->text('summary');
+            $table->string('image');
             $table->string('image_mini');
             $table->string('professional_skill_title');
             $table->string('personal_skill_title');
             $table->string('work_experience_title');
             $table->string('education_title');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

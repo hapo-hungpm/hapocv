@@ -16,10 +16,9 @@ class CreateCvSkillTable extends Migration
         Schema::create('cv_skill', function (Blueprint $table) {
             $table->unsignedBigInteger('skill_id');
             $table->unsignedBigInteger('cv_id');
-            $table->string('type');
-            $table->integer('percent');
+            $table->tinyInteger('percent');
             $table->foreign('skill_id')->references('id')->on('skills');
-            $table->foreign('cv_id')->references('id')->on('cvs');
+            $table->foreign('cv_id')->references('id')->on('cvs')->onDelete('cascade');
             $table->primary(array('cv_id', 'skill_id'));
             $table->timestamps();
         });

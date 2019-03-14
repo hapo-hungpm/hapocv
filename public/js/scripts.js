@@ -1,7 +1,3 @@
-function sayHi(name) {
-    let hihi;
-    return `How are you, ${hihid}?`;
-}
 function addSkillCircleChart() {
     //delete button add donut
     $('.wrap-donut-btn').remove();
@@ -31,9 +27,9 @@ function addSkillCircleChart() {
 							<svg width="100%" height="100%" class="donut"> \
 								<circle class="donut-ring donut-chart" r="47.5"></circle> \
 								<circle class="donut-segment donut-chart" r="47.5"></circle> \
-								<text x="50%" y="50%">100%</text> \
 							</svg> \
-							<p class="skill-name">NEW SKILL</p> \
+                            <span class="donut-percent" contenteditable="true" spellcheck="false">100%</span>\
+                            <input class="skill-name" value="NEW SKILL">\
 						</div>\
 						</div> ${btnNoMd}`;
 
@@ -42,9 +38,9 @@ function addSkillCircleChart() {
 function addSkillLineChart() {
     let charts = document.getElementsByClassName("sec-skill-line-charts")[0];
     charts.innerHTML += '<div class="sec-skill-line-chart"> \
-								<h5>NEW SKILL<h5> \
+								<h5 contenteditable="true">NEW SKILL</h5> \
 							<div class="progress-bar"> \
-							<div><p>100%</p></div> \
+							<div><p contenteditable="true">100%</p></div> \
 							</div> \
 						</div>';
 }
@@ -55,9 +51,9 @@ function addEventWorkChart() {
 							<div class="arrow-right"></div> \
 							<div class="line-dot-horizon"></div> \
 							<div class="chart-content"> \
-								<h4 class="event-name">(<span>2010 - 2019</span>) ABC COMPANY</h4> \
-								<p>Developer</p> \
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,\
+								<h4 class="event-name" contenteditable="true" spellcheck="false">(<span>2010 - 2019</span>) ABC COMPANY</h4> \
+								<p contenteditable="true" spellcheck="false">Developer</p> \
+								<p contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,\
 								sed diam nonummy nibh euismod tincclassunt</p> \
 							</div> \
 						</div>';
@@ -70,9 +66,9 @@ function addEventEduChart() {
 							<div class="line-dot-horizon"> \
 							</div> \
 							<div class="chart-content"> \
-								<h4 class="event-name">(<span>2010 - 2015</span>) DEF UNIVERSITY</h4> \
-								<p>Student</p> \
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,\
+								<h4 class="event-name" contenteditable="true" spellcheck="false">(<span>2010 - 2015</span>) DEF UNIVERSITY</h4> \
+								<p contenteditable="true" spellcheck="false">Student</p> \
+								<p contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,\
 								 sed diam nonummy nibh euismod tincclassunt</p> \
 							</div> \
 						</div>';
@@ -158,19 +154,30 @@ $(document).on('ready', function () {
         $(this).parent().css('width', percent);
     });
 
+    $(document).on('blur', '.progress-bar div p', function () {
+        let percent = $(this).text();
+        $(this).parent().css('width', percent);
+    });
+
     //Set percentage for donut chart.
-    $('.donut text').each(function () {
+    $('.donut').each(function () {
         let dasharray = 298.451302091;
-        let percent = $(this).text().substring(0, 2);
+        let percent = $(this).next().text().slice(0, -1);
         offset = (100 - percent) * dasharray / 100;
 
-        $(this).prev().attr({
+        $(this).children(".donut-segment").attr({
             'stroke-dashoffset': offset
         });
+    });
 
-        $(this).attr({
-            'x': '50%',
-            'y': '50%'
+    $(document).on('blur', '.donut-percent', function () {
+        alert('hihi');
+        let dasharray = 298.451302091;
+        let percent = $(this).text().slice(0, -1);
+        offset = (100 - percent) * dasharray / 100;
+
+        $(this).prev().children(".donut-segment").attr({
+            'stroke-dashoffset': offset
         });
     });
 });
