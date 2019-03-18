@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="content-sec">
     <h2>List user</h2>
     <div class="row justify-content-center">
         <table class="table">
@@ -58,6 +59,7 @@
             </div>
         </div>
     </div>
+</div>
 
 @endsection
 @section('script')

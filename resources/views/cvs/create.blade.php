@@ -47,6 +47,7 @@
                 </div>
             </div>
             <div class="sec-camera">
+                <input type="file" style="line-height: 60px;opacity: 0;">
                 <i class="fas fa-camera"></i>
             </div>
         </div>
@@ -61,6 +62,7 @@
                         <div class="row justify-content-center avatar-change avatar">
                             <div class="sec-camera-change">
                                 <i class="fas fa-camera"></i>
+                                <input type="file" style="line-height: 60px;opacity: 0;">
                             </div>
                         </div>
                     </div>
@@ -163,53 +165,68 @@
                     euismod tincclassunt</p>
                 <div class="row skill-chart sec-skill-donut-chart">
                     <div class="wrap-donut-chart-left">
-                        <div class="skill-donut-chart">
+                        <div class="skill-donut-chart delete-sec donut-chart">
+                            <i class="fas fa-times delete-btn"></i>
                             <svg class="donut">
                                 <circle class="donut-ring" r="47.5"></circle>
                                 <circle class="donut-segment" r="47.5"></circle>
                             </svg>
-                            <span class="donut-percent" contenteditable="true" spellcheck="false">65%</span>
-                            <input class="skill-name" value="html/css">
+                            <span class="donut-percent-wrap">
+                                <span class="donut-percent" contenteditable="true" spellcheck="false">65</span>%
+                            </span>
+                            <input class="skill-name" value="html/css" for="none">
                         </div>
                     </div>
                     <div class="wrap-donut-chart-center">
-                        <div class="skill-donut-chart">
+                        <div class="skill-donut-chart delete-sec donut-chart">
+                            <i class="fas fa-times delete-btn"></i>
                             <svg class="donut">
                                 <circle class="donut-ring" r="47.5"></circle>
                                 <circle class="donut-segment" r="47.5"></circle>
                             </svg>
-                            <span class="donut-percent" contenteditable="true" spellcheck="false">65%</span>
+                            <span class="donut-percent-wrap">
+                                <span class="donut-percent" contenteditable="true" spellcheck="false">65</span>%
+                            </span>
                             <input class="skill-name" value="c#">
                         </div>
                     </div>
                     <div class="wrap-donut-chart-right">
-                        <div class="skill-donut-chart">
+                        <div class="skill-donut-chart delete-sec donut-chart">
+                            <i class="fas fa-times delete-btn"></i>
                             <svg class="donut">
                                 <circle class="donut-ring" r="47.5"></circle>
                                 <circle class="donut-segment" r="47.5"></circle>
                             </svg>
-                            <span class="donut-percent" contenteditable="true" spellcheck="false">50%</span>
+                            <span class="donut-percent-wrap">
+                                <span class="donut-percent" contenteditable="true" spellcheck="false">65</span>%
+                            </span>
                             <input class="skill-name" value="mysql">
                         </div>
 
                     </div>
                     <div class="wrap-donut-chart-left">
-                        <div class="skill-donut-chart sec-btn-donut-chart">
+                        <div class="skill-donut-chart delete-sec donut-chart">
+                            <i class="fas fa-times delete-btn"></i>
                             <svg class="donut">
                                 <circle class="donut-ring" r="47.5"></circle>
                                 <circle class="donut-segment" r="47.5"></circle>
                             </svg>
-                            <span class="donut-percent" contenteditable="true" spellcheck="false">50%</span>
+                            <span class="donut-percent-wrap">
+                                <span class="donut-percent" contenteditable="true" spellcheck="false">50</span>%
+                            </span>
                             <input class="skill-name" value="php">
                         </div>
                     </div>
                     <div class="wrap-donut-chart-center">
-                        <div class="skill-donut-chart">
+                        <div class="skill-donut-chart delete-sec donut-chart">
+                            <i class="fas fa-times delete-btn"></i>
                             <svg class="donut">
                                 <circle class="donut-ring" r="47.5"></circle>
                                 <circle class="donut-segment" r="47.5"></circle>
                             </svg>
-                            <span class="donut-percent" contenteditable="true" spellcheck="false">65%</span>
+                            <span class="donut-percent-wrap">
+                                <span class="donut-percent" contenteditable="true" spellcheck="false">75</span>%
+                            </span>
                             <input class="skill-name" value="react native">
                         </div>
                     </div>
@@ -242,26 +259,29 @@
                         skills
                     </div>
                 </div>
-                <p class="sec-intro" id="personal_skill_title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                <p class="sec-intro" contenteditable="true" spellcheck="false" id="personal_skill_title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                     euismod tincclassunt</p>
                 <div class="skill-chart">
                     <div class="row sec-skill-line-charts">
-                        <div class="sec-skill-line-chart">
+                        <div class="sec-skill-line-chart delete-sec">
+                            <i class="fas fa-times delete-btn"></i>
                             <h5 contenteditable="true">team work</h5>
                             <div class="progress-bar">
                                 <div><p class="line-chart-percent" contenteditable="true">85%</p></div>
                             </div>
                         </div>
-                        <div class="sec-skill-line-chart">
+                        <div class="sec-skill-line-chart delete-sec">
+                            <i class="fas fa-times delete-btn"></i>
                             <h5 contenteditable="true">english</h5>
                             <div class="progress-bar">
-                                <div><p contenteditable="true">65%</p></div>
+                                <div><p class="line-chart-percent"  contenteditable="true">65%</p></div>
                             </div>
                         </div>
-                        <div class="sec-skill-line-chart">
+                        <div class="sec-skill-line-chart delete-sec">
+                            <i class="fas fa-times delete-btn"></i>
                             <h5 contenteditable="true">japanese</h5>
                             <div class="progress-bar">
-                                <div><p contenteditable="true">35%</p></div>
+                                <div><p class="line-chart-percent"  contenteditable="true">35%</p></div>
                             </div>
                         </div>
                     </div>
@@ -293,12 +313,13 @@
                 <div class="chart-work-edu">
                     <div class="head-line-vertical"></div>
                     <div class="chart-work">
-                        <div class="event-chart">
+                        <div class="event-chart delete-sec">
+                            <i class="fas fa-times delete-btn"></i>
                             <div class="arrow-right"></div>
                             <div class="line-dot-horizon">
                             </div>
                             <div class="chart-content work-ex-content">
-                                (<span class="timeline"><span contenteditable="true" class="start">2010</span> - <span class="end" contenteditable="true">2019</span></span></span>)
+                                (<span class="timeline"><span contenteditable="true" class="start">2010</span> - <span class="end" contenteditable="true">2019</span></span>)
                                 <span class="event-name company" contenteditable="true" spellcheck="false"> ABC COMPANY</span>
                                 <p contenteditable="true" spellcheck="false" class="position">Developer</p>
                                 <p contenteditable="true" spellcheck="false" class="work-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
@@ -424,16 +445,22 @@
     </div>
     <div class="row justify-content-center sec-references">
         <div class="row wrap-col wrap-row-content ">
-            <div class="sec-header">
+            <div class="sec-header header-ref">
                 <div class="line line-top"></div>
                 <p>References</p>
                 <div class="line line-bottom"></div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 delete-sec">
+                <i class="fas fa-times delete-ref-btn"></i>
                 <div class="regular">
-                    <div>
+                    <div class="slide">
                         <div class="row justify-content-center chart-content-ref">
-                            <div class="avatar-ref avatar"></div>
+                            <div class="row justify-content-center avatar-ref avatar">
+                                <div class="sec-camera-change">
+                                    <i class="fas fa-camera"></i>
+                                    <input type="file" style="line-height: 60px;opacity: 0;">
+                                </div>
+                            </div>
                             <div class="col-md sec-quotes">
                                 <span class="quotes quote-open"> “</span>
                                 <span class="quote-content" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincclassunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in</span>
@@ -441,17 +468,7 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div class="row justify-content-center chart-content-ref">
-                            <div class="avatar-ref avatar"></div>
-                            <div class="col-md sec-quotes">
-                                <span class="quotes quote-open"> “</span>
-                                <span class="quote-content" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincclassunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in</span>
-                                <span class="quotes quote-end">”</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
+                    <div class="slide">
                         <div class="row justify-content-center chart-content-ref">
                             <div class="avatar-ref avatar"></div>
                             <div class="col-md sec-quotes">
@@ -486,31 +503,30 @@
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script>
         $(document).ready(function () {
-
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
             $(".btn-submit").click(function(e) {
 
                 //add all donut skill into skills
                 let skills = [];
-                $( '.donut ').each(function () {
+                $( '.donut-chart').each(function () {
                     let skill = {
-                        percent :  $( this ).next().text().slice(0, -1),
-                        name :  $( this ).next().next().val(),
+                        percent :  $( this ).find(".donut-percent").text(),
+                        name :  $( this ).find(".skill-name").val(),
                         type: 1,
                     }
+                    console.log(1);
                     skills.push(skill);
                 });
 
                 //add all line skill into skills
                 $( '.sec-skill-line-chart ').each(function () {
                     let skill = {
-                        percent :  $( this ).children("div").children("div").children("p").text().slice(0, -1),
-                        name :  $( this ).children("h5").text(),
+                        percent :  $( this ).find(".line-chart-percent").text().slice(0, -1),
+                        name :  $( this ).find("h5").text(),
                         type: 2,
                     }
                     skills.push(skill);
@@ -520,11 +536,11 @@
                 let workExperiences = [];
                 $( '.work-ex-content ').each(function () {
                     let workExperience = {
-                        start :  $( this ).children(".timeline").children(".start").text(),
-                        end: $( this ).children(".timeline").children(".end").text(),
-                        company_name: $( this ).children(".company").text(),
-                        position: $( this ).children(".position").text(),
-                        work_content: $( this ).children(".work-content").text(),
+                        start :  $( this ).find(".start").text(),
+                        end: $( this ).find(".end").text(),
+                        company_name: $( this ).find(".company").text(),
+                        position: $( this ).find(".position").text(),
+                        work_content: $( this ).find(".work-content").text(),
                         type: 1,
                     }
                     workExperiences.push(workExperience);
@@ -534,27 +550,39 @@
                 let edus = [];
                 $( '.edu-content ').each(function () {
                     let edu = {
-                        start :  $( this ).children(".timeline").children(".start").text(),
-                        end: $( this ).children(".timeline").children(".end").text(),
-                        school_name: $( this ).children(".school").text(),
-                        position: $( this ).children(".position").text(),
-                        achievements: $( this ).children(".achievement").text(),
+                        start :  $( this ).find(".start").text(),
+                        end: $( this ).find(".end").text(),
+                        school_name: $( this ).find(".school").text(),
+                        position: $( this ).find(".position").text(),
+                        achievements: $( this ).find(".achievement").text(),
                         type: 2,
                     }
                     edus.push(edu);
+                });
+
+                let refs = [];
+                //add all ref into refs
+                $( '.chart-content-ref').each(function () {
+                    let ref = {
+                        content :  $( this ).find('.quote-content').text(),
+                        image: '',
+                    }
+                    refs.push(ref);
                 });
 
                 //JSON transformation
                 skills = JSON.stringify(skills);
                 workExperiences = JSON.stringify(workExperiences);
                 edus = JSON.stringify(edus);
+                refs = JSON.stringify(refs);
+                let imageFile = new FormData($(".sec-camera input"));
 
                 e.preventDefault();
                 $.ajax({
                     url: '{{ route('cvs.store') }}',
                     type: 'POST',
                     data: {
-                        cv_title: $("#cv-title").text(),
+                        title: $("#cv-title").text(),
                         name: $("#name").text(),
                         date_of_birth : $("#date_of_birth").text(),
                         phone: $("#phone").text(),
@@ -574,11 +602,27 @@
                         skills : skills,
                         work_experiences: workExperiences,
                         educations: edus,
+                        references: refs,
+                        // image_file: imageFile,
                     },
+                    // processData: false,
                     success: function(result){
                         alert(result);
                     }
                 });
+            });
+            $(".donut-chart .delete-btn").click(function () {
+                $(this).parent().parent().remove();
+            });
+            $(".sec-skill-line-chart .delete-btn").click(function () {
+                $(this).parent().remove();
+            });
+            $(".event-chart .delete-btn").click(function () {
+                $(this).parent().remove();
+            });
+            $('.delete-ref-btn').on('click', function() {
+                console.log( $('.slick-slide').index(this) + 1);
+                $('.regular').slick('slickRemove', $('.slick-slide').index(this) + 1);
             });
 
             //Recommend testing...
@@ -605,12 +649,31 @@
                     "Python",
                     "Ruby",
                     "Scala",
-                    "Scheme"
+                    "Scheme",
                 ];
                 $( ".skill-name" ).autocomplete({
                     source: availableTags
                 });
             } );
+            function readURL(input, image_sec) {
+                if (input.files && input.files[0]) {
+                    let reader = new FileReader();
+                    reader.onload = function(e) {
+                        let url = 'url(' + e.target.result + ')';
+                        $(image_sec).css('background-image', url);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $(".sec-camera input").change(function() {
+                readURL(this, '.avt-cover');
+            });
+            $(".sec-camera-change input").change(function() {
+                readURL(this, '.avatar-change');
+            });
+            $(".avatar-ref .sec-camera-change input").change(function() {
+                readURL(this, '.avatar-ref');
+            });
         });
     </script>
 @endsection

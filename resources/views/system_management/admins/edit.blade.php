@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="content-sec">
     <div class="row">
         <h2>Edit admin</h2>
     </div>
@@ -27,4 +28,5 @@
         </div>
         <button type="submit" class="btn btn-success">Save</button>
     </form>
+</div>
 @endsection

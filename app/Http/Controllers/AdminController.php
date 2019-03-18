@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAdminRequest;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class AdminController extends Controller
         return view('system_management.admins.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreAdminRequest $request)
     {
         Admin::create($request->all());
         return redirect()->route('system_management.admins.index');

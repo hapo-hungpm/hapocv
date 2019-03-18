@@ -1,14 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="content-sec">
     <h2>List cv</h2>
     <div class="row justify-content-center">
         <table class="table">
             <thead>
             <tr>
                 <th>id</th>
-                <th>name</th>
-                <th>email</th>
+                <th>user id</th>
+                <th>title</th>
                 <th></th>
             </tr>
             </thead>
@@ -16,8 +17,8 @@
             @foreach($cvs as $cv)
                 <tr>
                     <th>{{ $cv->id }}</th>
-                    <td>{{ $cv->firstname }}</td>
-                    <td>{{ $cv->email }}</td>
+                    <td>{{ $cv->user_id }}</td>
+                    <td>{{ $cv->title }}</td>
                     <td><a href=""><button class="btn btn-outline-primary btn-sm">Edit</button></a></td>
                 </tr>
             @endforeach
@@ -48,6 +49,7 @@
             </div>
         </div>
     </div>
+</div>
 
 @endsection
 @section('script')

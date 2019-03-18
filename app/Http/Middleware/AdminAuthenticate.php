@@ -16,7 +16,6 @@ class AdminAuthenticate
      */
     public function handle($request, Closure $next)
     {
-
         if(auth()->guard('admin')->check())
             return $next($request);
         else

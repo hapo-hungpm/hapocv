@@ -26,6 +26,6 @@ Route::post('system_management/logout', 'Auth\Admin\LoginController@logout')->na
 Route::prefix('system_management')->middleware('admin.auth')->name('system_management.')->group(function () {
     Route::resource('admins', 'AdminController');
     Route::resource('users', 'UserController');
-    Route::get('cvs/all', 'CvController@showAllCv')->name('cvs.all');
+    Route::get('cvs/all', 'CvController@showAllCvs')->name('cvs.all');
     Route::view('/', 'system_management.home')->name('home');
 });

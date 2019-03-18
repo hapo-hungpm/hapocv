@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="content-sec">
     <h2>List admin</h2>
     <a href="{{ route('system_management.admins.create') }}"><button class="btn btn-primary btn-sm">Add admin</button></a><br><br>
     <div class="row justify-content-center">
@@ -59,6 +60,7 @@
             </div>
         </div>
     </div>
+</div>
 
 @endsection
 @section('script')

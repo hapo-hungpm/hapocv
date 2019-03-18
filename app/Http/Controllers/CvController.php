@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cv;
 use App\Models\Education;
+use App\Models\Reference;
 use App\Models\Skill;
 use App\Models\Company;
 use App\Models\School;
@@ -15,10 +16,10 @@ class CvController extends Controller
 {
     public function index()
     {
-        //is progressing...
-        $cvs = Cv::paginate(env('PAGINATION'));
+        $cvs = Cv::where('user_id', Auth::id())
+            ->orderby('id', 'DESC')
+            ->paginate(2);
         return view('cvs.index', compact('cvs'));
-
     }
 
     public function create()
@@ -35,44 +36,32 @@ class CvController extends Controller
 
         $skills = json_decode($request->skills);
         foreach ($skills as $skill) {
-            if (!Skill::where('name', $skill->name)->exists()) {
-                $newSkill = new Skill();
-                $newSkill->name = $skill->name;
-                $newSkill->type = $skill->type;
-                $newSkill->save();
-            }
+            $skillId = Skill::firstOrCreate(['name' => $skill->name, 'type' => $skill->type])->id;
             $cv->skills()->attach(
-                Skill::where('name', $skill->name)->first()->id,
+                $skillId,
                 ['percent' => $skill->percent]);
         }
 
         $work_experiences = json_decode($request->work_experiences);
         foreach ($work_experiences as $work_experience) {
-            if (!Company::where('name', $work_experience->company_name)->exists()) {
-                $newCompany = new Company();
-                $newCompany->name = $work_experience->company_name;
-                $newCompany->address = '';
-                $newCompany->save();
-            }
-            $companyId = Company::where('name', $work_experience->company_name)->first()->id;
+            $companyId = Company::firstOrCreate(['name' => $work_experience->company_name])->id;
             $data = array_merge((array)$work_experience, ['cv_id' => $cv->id, 'company_id' => $companyId]);
-            $work_experience = WorkExperience::create($data);
-            $work_experience->save();
+            WorkExperience::create($data);
         }
 
         $educations = json_decode($request->educations);
         foreach ($educations as $education) {
-            if (!School::where('name', $education->school_name)->exists()) {
-                $newSchool = new School();
-                $newSchool->name = $education->school_name;
-                $newSchool->address = '';
-                $newSchool->save();
-            }
-            $schoolId = School::where('name', $education->school_name)->first()->id;
+            $schoolId = School::firstOrCreate(['name' => $education->school_name])->id;
             $data = array_merge((array)$education, ['cv_id' => $cv->id, 'school_id' => $schoolId]);
-            $education = Education::create($data);
-            $education->save();
+            Education::create($data);
         }
+
+        $references = json_decode($request->references);
+        foreach ($references as $reference) {
+            $data = array_merge((array)$reference, ['cv_id' => $cv->id]);
+            Reference::create($data);
+        }
+
         return 'Success!';
     }
 
@@ -97,9 +86,11 @@ class CvController extends Controller
         //is progressing...
     }
 
-    public function showAllCv()
+    public function showAllCvs()
     {
-        $cvs = Cv::paginate(env('PAGINATION'));
+        $cvs = Cv::select(['id', 'title', 'user_id'])
+            ->orderby('id', 'DESC')
+            ->paginate(env('PAGINATION'));
         return view('system_management.cvs.index', compact('cvs'));
     }
 }

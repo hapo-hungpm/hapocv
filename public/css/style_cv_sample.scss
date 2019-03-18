@@ -92,12 +92,14 @@
 
 /*avt-change*/
 .sec-camera,
-.avatar-change div {
+.avatar-change div,
+.avatar-ref div {
     display: none;
 }
 
 .avatar-change:hover div,
-.avt-cover:hover .sec-camera {
+.avt-cover:hover .sec-camera,
+.avatar-ref:hover div{
     display: block;
 }
 
@@ -151,6 +153,8 @@
 .sec-camera-change {
     margin: 0 auto;
     cursor: pointer;
+    z-index: 100;
+    display: block;
 }
 
 .name-cover {
@@ -204,21 +208,20 @@
     background: url(../imgs/photographer-1867417_1920.jpg) center, #C4C4C4;
     background-size: auto 100%;
     overflow: hidden;
-
-    div {
-        width: 124px;
-        height: 33px;
-        background-color: rgba(58, 57, 57, 0.8);
-        align-self: flex-end;
-
-        i {
-            margin-top: 6px;
-            position: absolute;
-            left: 45%;
-        }
-    }
 }
 
+.sec-camera-change {
+    width: 124px;
+    height: 33px;
+    background-color: rgba(58, 57, 57, 0.8);
+    align-self: flex-end;
+
+    i {
+        margin-top: 6px;
+        position: absolute;
+        left: 45%;
+    }
+}
 .info-form-wrap {
     padding: 0 15px;
     transform: translate(-10px);
@@ -330,7 +333,7 @@ tbody {
             }
         }
 
-        .donut-percent {
+        .donut-percent-wrap {
             position: absolute;
             top: 36px;
             margin: 0 auto;
@@ -567,6 +570,7 @@ tbody {
         left: 0;
         height: 100%;
         width: 100%;
+        width: 100%;
         align-items: center;
     }
 }
@@ -576,12 +580,17 @@ tbody {
     background-color: #2F2FA1;
 }
 
+.header-ref {
+    margin-bottom: 0;
+}
+
 .avatar-ref {
     background: url(../imgs/avatar-ref.jpg) center, #C4C4C4;
     background-size: auto 100%;
     margin-left: 0;
     flex-shrink: 0;
     flex-grow: 0;
+    overflow: hidden;
 }
 
 .sec-quotes {
@@ -618,7 +627,7 @@ tbody {
 .chart-content-ref {
     align-items: center;
     max-width: 1010px;
-    margin: -20px auto 0 auto;
+    margin: 0 auto;
 }
 
 .btn-add-ref {
@@ -716,4 +725,29 @@ tbody {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.delete-sec{
+    position: relative;
+    &:hover {
+        outline: 1px dashed #ffffff;
+        .delete-btn,
+        .delete-ref-btn {
+            visibility: visible;
+            &:hover {
+                font-size: 22px;
+            }
+        }
+    }
+    .delete-btn,
+    .delete-ref-btn{
+        visibility: hidden;
+        position: absolute;
+        cursor: pointer;
+        font-size: 16px;
+        color: red;
+        right: 0;
+        top: 0;
+    }
+
 }

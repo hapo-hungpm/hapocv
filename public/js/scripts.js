@@ -23,12 +23,15 @@ function addSkillCircleChart() {
 					</div>';
     //add chart
     let charts = document.getElementsByClassName("sec-skill-donut-chart")[0];
-    charts.innerHTML += `<div class="${typeCol}"><div class="skill-donut-chart"> \
+    charts.innerHTML += `<div class="${typeCol}"><div class="skill-donut-chart delete-sec donut-chart"> \
+                            <i class="fas fa-times-circle delete-btn"></i> \
 							<svg width="100%" height="100%" class="donut"> \
-								<circle class="donut-ring donut-chart" r="47.5"></circle> \
-								<circle class="donut-segment donut-chart" r="47.5"></circle> \
+								<circle class="donut-ring" r="47.5"></circle> \
+								<circle class="donut-segment" r="47.5"></circle> \
 							</svg> \
-                            <span class="donut-percent" contenteditable="true" spellcheck="false">100%</span>\
+                            <span class="donut-percent-wrap">\
+                                <span class="donut-percent" contenteditable="true" spellcheck="false">100</span>%\
+                            </span>\
                             <input class="skill-name" value="NEW SKILL">\
 						</div>\
 						</div> ${btnNoMd}`;
@@ -37,10 +40,11 @@ function addSkillCircleChart() {
 
 function addSkillLineChart() {
     let charts = document.getElementsByClassName("sec-skill-line-charts")[0];
-    charts.innerHTML += '<div class="sec-skill-line-chart"> \
+    charts.innerHTML += '<div class="sec-skill-line-chart delete-sec"> \
+                                <i class="fas fa-times-circle delete-btn"></i> \
 								<h5 contenteditable="true">NEW SKILL</h5> \
 							<div class="progress-bar"> \
-							<div><p contenteditable="true">100%</p></div> \
+							<div><p class="line-chart-percent"  contenteditable="true">100%</p></div> \
 							</div> \
 						</div>';
 }
@@ -48,29 +52,32 @@ function addSkillLineChart() {
 function addEventWorkChart() {
     let charts = document.getElementsByClassName("chart-work")[0];
     charts.innerHTML += '<div class="event-chart"> \
-							<div class="arrow-right"></div> \
-							<div class="line-dot-horizon"></div> \
-							<div class="chart-content"> \
-								<h4 class="event-name" contenteditable="true" spellcheck="false">(<span>2010 - 2019</span>) ABC COMPANY</h4> \
-								<p contenteditable="true" spellcheck="false">Developer</p> \
-								<p contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,\
-								sed diam nonummy nibh euismod tincclassunt</p> \
-							</div> \
+                                    <div class="arrow-right"></div> \
+                                    <div class="line-dot-horizon">\
+                                    </div>\
+                                    <div class="chart-content work-ex-content">\
+                                        (<span class="timeline"><span contenteditable="true" class="start">2010</span> - <span class="end" contenteditable="true">2019</span></span></span>)\
+                                        <span class="event-name company" contenteditable="true" spellcheck="false"> ABC COMPANY</span>\
+                                        <p contenteditable="true" spellcheck="false" class="position">Developer</p>\
+                                        <p contenteditable="true" spellcheck="false" class="work-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh\
+                                            euismod tincclassunt</p>\
+                                    </div> \
 						</div>';
 }
 
 function addEventEduChart() {
     let charts = document.getElementsByClassName("chart-edu")[0];
     charts.innerHTML += '<div class="event-chart"> \
-							<div class="arrow-right"></div> \
-							<div class="line-dot-horizon"> \
-							</div> \
-							<div class="chart-content"> \
-								<h4 class="event-name" contenteditable="true" spellcheck="false">(<span>2010 - 2015</span>) DEF UNIVERSITY</h4> \
-								<p contenteditable="true" spellcheck="false">Student</p> \
-								<p contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,\
-								 sed diam nonummy nibh euismod tincclassunt</p> \
-							</div> \
+                            <div class="arrow-right"></div>\
+                            <div class="line-dot-horizon">\
+                            </div>\
+                            <div class="chart-content edu-content">\
+                                (<span class="timeline"><span contenteditable="true" class="start">2010</span> - <span class="end" contenteditable="true">2019</span></span>)\
+                                <span class="event-name school" contenteditable="true" spellcheck="false"> DEF UNIVERSITY</span>\
+                                <p class="position" contenteditable="true" spellcheck="false">Student</p>\
+                                <p class="achievement" contenteditable="true" spellcheck="false">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh\
+                                    euismod tincclassunt</p>\
+                                    </div>\
 						</div>';
 }
 
@@ -121,7 +128,7 @@ $(document).on('ready', function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: false,
-        autoplaySpeed: 7000
+        autoplaySpeed: 7000,
     });
 
     //slick add slide
@@ -160,23 +167,31 @@ $(document).on('ready', function () {
     });
 
     //Set percentage for donut chart.
-    $('.donut').each(function () {
+    $('.donut-chart').each(function () {
         let dasharray = 298.451302091;
-        let percent = $(this).next().text().slice(0, -1);
+        let percent = $(this).find(".donut-percent").text();
+        console.log(percent);
         offset = (100 - percent) * dasharray / 100;
 
-        $(this).children(".donut-segment").attr({
+        $(this).find(".donut-segment").attr({
             'stroke-dashoffset': offset
         });
     });
 
     $(document).on('blur', '.donut-percent', function () {
-        alert('hihi');
+        let percent = $(this).text();
+        if (percent > 100) {
+            percent = 100;
+            $(this).text(percent);
+        }
+        else if (percent < 0) {
+            percent = 0;
+            $(this).text(percent);
+        }
         let dasharray = 298.451302091;
-        let percent = $(this).text().slice(0, -1);
         offset = (100 - percent) * dasharray / 100;
 
-        $(this).prev().children(".donut-segment").attr({
+        $(this).parent().prev().find(".donut-segment").attr({
             'stroke-dashoffset': offset
         });
     });

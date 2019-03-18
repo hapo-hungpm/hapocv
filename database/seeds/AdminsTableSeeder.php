@@ -13,12 +13,25 @@ class AdminsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
-            DB::table('admins')->insert([
-                'name' => 'Hung',
-                'email' => Str::random(3) . '@haposoft.com',
-                'password' => bcrypt('12345678'),
-            ]);
-        }
+
+        DB::table('admins')->insert([
+            'name' => 'Hung Admin',
+            'email' => 'hungpm@haposoft.com',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Hung User',
+            'email' => 'hungpm.hust@gmail.com',
+            'password' => bcrypt('12345678'),
+        ]);
+
+//        for ($i = 0; $i < 10; $i++) {
+//            DB::table('admins')->insert([
+//                'name' => 'Hung',
+//                'email' => Str::random(3) . '@haposoft.com',
+//                'password' => bcrypt('12345678'),
+//            ]);
+//        }
     }
 }
