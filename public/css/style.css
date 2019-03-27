@@ -1,0 +1,88 @@
+#app {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.content-sec {
+    padding: 20px 35px;
+}
+
+a,
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-laravel {
+    background-color: #004D40;
+}
+
+.navbar-brand,
+.nav-link {
+    color: white !important;
+}
+
+.card {
+    margin-top: 120px;
+}
+.grid-menu {
+    padding: 100px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    color: white;
+}
+
+.grid-menu div {
+    height: 200px;
+    background-color: #4DB6AC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-menu div:hover {
+    cursor: pointer;
+    background-color: #009688;
+    height: 240px;
+    padding: 30px;
+    margin-top: -20px;
+    transition: 0.3s;
+}
+
+.grid-menu div p {
+    font-size: 25px;
+    font-family: sans-serif;
+}
+
+.icon-home {
+    font-size: 36px;
+    display: block;
+}
+
+.cv-thumbnail {
+    width: 100px;
+    height: auto;
+}
+
+.cv-element-sec {
+    background-color: #F1F8E9;
+    max-width: 960px;
+    padding: 20px ;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.btn-sec {
+    margin-top: 20px;
+}
+
+.btn-sec button {
+    float: right;
+    margin: 0 10px;
+}
+
+.pagination {
+    justify-content: center;
+}
+

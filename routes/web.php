@@ -14,3 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+Route::resource('cvs', 'CvController');
+
+Route::get('system_management/login', 'Auth\Admin\LoginController@showLoginForm')->name('system_management.login');
+Route::post('system_management/login', 'Auth\Admin\LoginController@login')->name('system_management.login');
+Route::post('system_management/logout', 'Auth\Admin\LoginController@logout')->name('system_management.logout');
+Route::prefix('system_management')->middleware('admin.auth')->name('system_management.')->group(function () {
+    Route::resource('admins', 'AdminController');
+    Route::resource('users', 'UserController');
+    Route::get('cvs/all', 'CvController@showAllCvs')->name('cvs.all');
+    Route::view('/', 'system_management.home')->name('home');
+});

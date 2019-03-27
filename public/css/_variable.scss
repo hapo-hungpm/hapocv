@@ -1,0 +1,36 @@
+$orange: #F85365;
+
+@font-face {
+    font-family: Poppins-h1;
+    font-display: auto;
+    src: url('../font/poppins/Poppins-Bold.otf');
+}
+
+@font-face {
+    font-family: Poppins;
+    font-display: auto;
+    src: url('../font/poppins/Poppins-ExtraLight.otf');
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    font-display: auto;
+    src: url('../font/poppins/Poppins-Medium.otf');
+}
+
+@mixin font-define($weight, $size, $family, $letter_spacing, $text_transform) {
+    font: {
+        weight: $weight;
+        size: $size;
+        family: $family;
+    }
+    letter-spacing: $letter_spacing;
+    text-transform: $text_transform;
+}
+
+%donut-chart {
+    fill: none;
+    stroke-width: 5;
+    cx: 50;
+    cy: 50;
+}

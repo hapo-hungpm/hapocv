@@ -1,0 +1,196 @@
+@font-face {
+  font-family: Poppins-h1;
+  font-display: auto;
+  src: url("../font/poppins/Poppins-Bold.otf"); }
+@font-face {
+  font-family: Poppins;
+  font-display: auto;
+  src: url("../font/poppins/Poppins-ExtraLight.otf"); }
+@font-face {
+  font-family: Poppins-Medium;
+  font-display: auto;
+  src: url("../font/poppins/Poppins-Medium.otf"); }
+@media only screen and (max-width: 767px) {
+  .wrap-col {
+    padding: 35px 15px; }
+
+  .info {
+    padding-top: 0; }
+
+  .col-data {
+    max-width: 738px; }
+
+  tbody {
+    width: 738px; }
+
+  .line-info {
+    max-width: 768px; }
+
+  .row-btn {
+    justify-content: center; }
+
+  .btn-edit-profile {
+    margin-bottom: 35px; }
+
+  .line {
+    height: 1.5px; }
+
+  .sec-header {
+    font-size: 16px;
+    margin-bottom: 11.5px; }
+
+  .skill-chart {
+    margin-top: -5px;
+    padding: 0; }
+
+  .sec-skill-line-chart {
+    margin-top: 15px; }
+
+  .event-chart {
+    padding-bottom: 10px !important; }
+
+  .sec-graphic {
+    grid-template-columns: 50% 50%;
+    margin-top: 5px; }
+    .sec-graphic .rec-horizon {
+      padding: 63.188405797% 0 0 0; }
+    .sec-graphic .rec-vertical {
+      padding: 126.376811594% 0 0 0; }
+
+  .btn {
+    margin-top: 15px;
+    cursor: pointer; }
+
+  .btn-edit-summary {
+    margin-right: 0; }
+
+  .rec-btn {
+    grid-column: 2; }
+
+  .wrap-col-left {
+    padding-bottom: 0; }
+
+  .wrap-donut-btn {
+    display: none !important; }
+
+  .btn-donut-chart-md {
+    display: flex; }
+
+  .chart-work-edu {
+    margin: 15px 0 7px 8px; }
+
+  .btn-work-edu {
+    margin-right: 0; }
+
+  .chart-content-ref {
+    margin: 8px 0 21px 15px; }
+
+  .sec-quotes {
+    margin: 0;
+    padding: 0 15px; }
+    .sec-quotes .quotes {
+      font-size: 60px; }
+    .sec-quotes .quote-open {
+      top: -15px;
+      left: -14px; }
+    .sec-quotes .quote-end {
+      bottom: -36px; }
+
+  .avatar-ref {
+    margin-bottom: 15px;
+    transform: translate(-15px); }
+
+  .avt-cover {
+    height: 175px;
+    background: url(./../../imgs/photographer-1867417_1920.jpg) center, #C4C4C4;
+    background-size: 100% auto;
+    position: relative; }
+
+  .info-cover {
+    margin-top: 39px; }
+
+  .name-cover {
+    font-size: 16px; }
+
+  .job-cover {
+    font-size: 14px; }
+
+  .sec-camera {
+    height: 35px;
+    width: 35px; }
+    .sec-camera .fa-camera {
+      right: 8px;
+      bottom: 8px;
+      font-size: 10px; }
+
+  .sec-camera-change i {
+    font-size: 10px; }
+
+  .avatar-change {
+    width: 100px;
+    height: 100px;
+    margin-top: -50px; }
+    .avatar-change div {
+      height: 20px; }
+
+  .language {
+    display: none; }
+
+  .language-md {
+    display: flex;
+    width: 159px; }
+
+  .name-info {
+    margin-top: 16px; }
+
+  .line-dot-horizon {
+    min-width: 26px; }
+
+  .info-form-wrap {
+    transform: translate(0); }
+
+  .slick-prev {
+    top: 90px;
+    left: 20%; }
+
+  .slick-next {
+    top: 90px;
+    right: 20%; }
+
+  .slick-list {
+    margin: 0; }
+
+  .menu {
+    margin-left: 0; }
+    .menu a:first-child {
+      margin-left: 0; } }
+@media only screen and (max-width: 900px) and (min-width: 768px) {
+  .sec-skill-donut-chart {
+    grid-template-columns: 50% 50%; }
+    .sec-skill-donut-chart .wrap-donut-chart-left,
+    .sec-skill-donut-chart .wrap-donut-chart-right {
+      justify-content: center; }
+
+  .wrap-donut-btn {
+    grid-column: 2; } }
+@media only screen and (max-width: 576px) {
+  .sec-skill-donut-chart {
+    grid-template-columns: 50% 50%;
+    margin-top: -10px; }
+
+  .wrap-donut-btn {
+    grid-column: 2; } }
+@media only screen and (max-width: 370px) {
+  .slick-prev {
+    left: 5%; }
+
+  .slick-next {
+    right: 5%; } }
+@media only screen and (max-width: 280px) {
+  .sec-skill-donut-chart {
+    grid-template-columns: 100%; } }
+@media only screen and (max-width: 320px) {
+  .btn-project {
+    padding: 3px; } }
+
+/*# sourceMappingURL=responsive.css.map */
