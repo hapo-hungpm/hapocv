@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CvController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('accessCvRight')->except('index', 'create', 'store', 'showAll');
+    }
+
     public function index()
     {
         $cvs = Cv::where('user_id', Auth::id())
@@ -97,35 +102,24 @@ class CvController extends Controller
         return $cv->id;
     }
 
-
     public function show($id)
     {
-        $cv = auth()->user()->cvs()->findOrFail($id);
-        $skills =  $cv->skills;
-        $educations = $cv->educations;
-        $work_experiences = $cv->workExperiences;
-        $portfolios = $cv->portfolios;
-        $references = $cv->references;
-
-        return view('cvs.show', compact('cv','skills', 'educations', 'work_experiences', 'portfolios', 'references'));
+        $cv = Cv::findOrFail($id);
+        return view('cvs.show', compact('cv'));
     }
 
     public function edit($id)
     {
-        $cv = auth()->user()->cvs()->findOrFail($id);
-        $skills =  $cv->skills;
-        $educations = $cv->educations;
-        $work_experiences = $cv->workExperiences;
-        $portfolios = $cv->portfolios;
-        $references = $cv->references;
+        $cv = Cv::findOrFail($id);
 
-        return view('cvs.edit', compact('cv','skills', 'educations', 'work_experiences', 'portfolios', 'references'));
+        return view('cvs.edit', compact('cv'));
     }
 
     public function update(Request $request, $id)
     {
         //is progressing...
-        $cv = auth()->user()->cvs()->findOrFail($id);
+        $cv = Cv::findOrFail($id);
+
         $imageName = $cv->image;
         $imageMiniName = $cv->image_mini;
         if ($request->hasFile('image')) {
@@ -156,6 +150,7 @@ class CvController extends Controller
             $data = array_merge((array)$work_experience, ['cv_id' => $cv->id, 'company_id' => $companyId]);
             WorkExperience::create($data);
         }
+
         $cv->educations()->delete();
         $educations = $request->educations;
         foreach ($educations as $education) {
@@ -171,8 +166,8 @@ class CvController extends Controller
             Portfolio::create($data);
         }
 
-        $cv->references()->whereIn('id',  $request->deleted_references)->delete();
-        return explode('/', $request->deleted_references);
+        $deleted_references = json_decode($request->deleted_references);
+        $cv->references()->whereIn('id',  $deleted_references)->delete();
         $references = $request->references;
         foreach ($references as $reference) {
             if ($reference['id'] === 'undefined') {
@@ -202,7 +197,8 @@ class CvController extends Controller
 
     public function destroy($id)
     {
-        //is progressing...
+        Cv::findOrFail($id)->delete();
+        return redirect()->route('cvs.index');
     }
 
     public function showAll()

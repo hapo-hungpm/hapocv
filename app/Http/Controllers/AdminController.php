@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('superadmin')->except('index');
+    }
+
     public function index()
     {
         $admins = Admin::paginate(env('PAGINATION'));
